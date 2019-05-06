@@ -1,0 +1,52 @@
+﻿@page
+@{
+    Layout = "_Layout_Example2";
+}
+
+@section Head{
+    <style>
+        .buttonWrap { margin-top: 20px }
+    </style>
+}
+
+<div>
+    <h1>Example 2</h1>
+    Message from vue: <span v-text="appMessage"></span><br />
+
+    <div class="buttonWrap">
+        <button type="button" v-if="displayButton1">Button 1</button>
+        <button type="button" v-if="displayButton2">Button 2</button>
+    </div>
+
+    <div class="buttonWrap">
+        Button 1 Visibility: <button type="button" v-on:click="displayButton1=!displayButton1">Toggle 1</button><br />
+        Button 2 Visibility: <button type="button" v-on:click="displayButton2=!displayButton2">Toggle 2</button><br />
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        //Note that these are regular javascript variables not Vue properties 
+        //so they are not reactive.
+        var pageMixin = {
+            data: function () {
+                return {
+                    //These are reactive.  Changing them will change whether 
+                    //the related button is displayed
+                    displayButton1: true,
+                    displayButton2: false
+                };
+            },
+            methods: {
+                //vue methods can be added here
+            }
+        };
+
+        mixinArray.push(pageMixin);
+    </script>
+}
+
+
+
+

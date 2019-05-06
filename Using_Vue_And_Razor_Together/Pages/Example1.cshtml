@@ -1,0 +1,35 @@
+﻿@page
+@{
+    Layout = "_Layout_Example1";
+}
+
+@section Head{
+    <style>
+        .buttonWrap { margin-top: 20px }
+    </style>
+}
+
+<div>
+    <h1>Example 1</h1>
+
+    Message from vue: <span v-text="appMessage"></span><br />
+
+    <div class="buttonWrap">
+        <button type="button" v-if="displayButton1">Button 1</button>
+        <button type="button" v-if="displayButton2">Button 2</button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        //Note that these are regular javascript variables not Vue properties 
+        //so they are not reactive.
+        var displayButton1 = true;
+        var displayButton2 = false;
+    </script>
+}
+
+
+
+
